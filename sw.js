@@ -6,8 +6,11 @@ const ARQUIVOS_CACHE = [
     '/',
     '/index.html',
     '/style.css',
-    '/script.js',
+    '/app.js',
     '/manifest.json',
+    '/Camiseta Matrix Code.jpg',
+'/Camiseta Python Developer',
+'/Que A Força Esteja Com Você',
     '/icon-192.png',
     '/icon-512.png'
 ];
