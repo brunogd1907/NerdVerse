@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NerdVerse Store | Roupas & Estampas Geeks</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Link para o arquivo CSS separado (caso prefira usar um) -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos embutidos para garantir que funcione de imediato */
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --accent-cyan: #00ffcc;
+            --accent-purple: #bd34fe;
+            --text-main: #c9d1d9;
+            --text-white: #ffffff;
+            --card-bg: #21262d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid #30363d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent-cyan);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .cart-btn {
+            background: var(--card-bg);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #30363d;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(13, 17, 23, 0.9), rgba(189, 52, 254, 0.15)), 
+                url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            color: var(--text-white);
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #8b949e;
+        }
+
+        .btn-neon {
+            display: inline-block;
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.6);
+        }
+
+        /* Products Section */
+        .section-title {
+            margin: 40px 0 20px;
+            font-size: 2rem;
+            color: var(--text-white);
+            border-left: 4px solid var(--accent-purple);
+            padding-left: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-bottom: 15px;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+        }
+
+        .btn-buy {
+            background-color: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #a524e6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-secondary);
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container nav-container">
+            <h1 class="logo">&lt;NerdVerse/&gt;</h1>
+            <nav class="nav-links">
+                <a href="#home">Início</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#sobre">Sobre</a>
+            </nav>
+            <div class="cart-btn">
+                🛒 Carrinho (<span id="cart-count">0</span>)
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Vista sua Paixão Geek</h2>
+            <p>Camisetas, moletons e acessórios inspirados em código, games, sci-fi e cultura pop.</p>
+            <a href="#produtos" class="btn-neon">Explorar Coleção</a>
+        </div>
+    </section>
+
+    <!-- Grade de Produtos com Fotos e Preços -->
+    <main id="produtos" class="container">
+        <h3 class="section-title">Coleção de Camisetas Nerds</h3>
+        <div class="product-grid">
+            
+            <!-- Produto 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80" alt="Camiseta 404 Not Found" class="product-image">
+                <div class="product-info">
+                    <h4 class="product-title">Camiseta "404 Not Found"</h4>
+                    <p class="product-desc">Para quem sabe que não há lugar como o 127.0.0.1. 100% Algodão penteado.</p>
+                    <div class="product-footer">
+                        <span class="product-price">R$ 79,90</span>
+                        <button class="btn-buy" onclick="addToCart('Camiseta 404 Not Found', 79.90)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=500&q=80" alt="Camiseta May the Force" class="product-image">
+                <div class="product-info">
+                    <h4 class="product-title">Camiseta "May the Force"</h4>
+                    <p class="product-desc">Estampa inspirada na saga espacial clássica. Conforto intergaláctico.</p>
+                    <div class="product-footer">
+                        <span class="product-price">R$ 89,90</span>
+                        <button class="btn-buy" onclick="addToCart('Camiseta May the Force', 89.90)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80" alt="Camiseta Matrix Code" class="product-image">
+                <div class="product-info">
+                    <h4 class="product-title">Camiseta "Matrix Code"</h4>
+                    <p class="product-desc">O coelho branco está te chamando. Vista a pílula vermelha do estilo.</p>
+                    <div class="product-footer">
+                        <span class="product-price">R$ 84,90</span>
+                        <button class="btn-buy" onclick="addToCart('Camiseta Matrix Code', 84.90)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=500&q=80" alt="Camiseta Python Developer" class="product-image">
+                <div class="product-info">
+                    <h4 class="product-title">Camiseta "Python Developer"</h4>
+                    <p class="product-desc">Para quem prefere indentação por espaços e código limpo e elegante.</p>
+                    <div class="product-footer">
+                        <span class="product-price">R$ 79,90</span>
+                        <button class="btn-buy" onclick="addToCart('Camiseta Python Developer', 79.90)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2026 NerdVerse Store. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script de Interação do Carrinho -->
+    <script>
+        let cart = [];
+        function addToCart(productName, price) {
+            cart.push({ name: productName
