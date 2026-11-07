@@ -1,7 +1,7 @@
 {
     "name": "NerdVerse",
-    "short_name": "Nerd",
-    "description": "Projeto PWA Etec Aprígio Gonzaga",
+    "short_name": "NerdVerse",
+    "description": "Projeto PWA NerdVerse",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
